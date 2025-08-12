@@ -12,18 +12,18 @@ class Arrays14{
             a[i]=sc.nextInt();
         } 
         int target=sc.nextInt();
-        int len=0,sum=0,maxlen=0;
-        for(int i=0;i<n;i++){
-            len=0;
-            sum=0;
-            for(int j=i;j<n;j++){
-                sum+=a[j];
-                if(sum==target){
-                    len=(j-i)+1;
-                    maxlen=Math.max(maxlen, len);
-                }
-            }
-        }
+        // int len=0,sum=0,maxlen=0;
+        // for(int i=0;i<n;i++){
+        //     len=0;
+        //     sum=0;
+        //     for(int j=i;j<n;j++){
+        //         sum+=a[j];
+        //         if(sum==target){
+        //             len=(j-i)+1;
+        //             maxlen=Math.max(maxlen, len);
+        //         }
+        //     }
+        // }
         
         // HashMap<Integer,Integer> hm=new HashMap<>();
         // int maxlen=0,sum=0;
