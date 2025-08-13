@@ -37,7 +37,7 @@ class Arrays15{
                 maxlen=Math.max(maxlen, len);
             }
             if(!hm.containsKey(sum)){
-                hm.put(sum, i);
+                hm.put(sum, i); 
             }
         }
         System.out.println(maxlen);
