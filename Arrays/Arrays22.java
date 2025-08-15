@@ -1,4 +1,4 @@
-//Rearrange Array Elements by Sign -- 1) brute force - (if pos==neg && pos!=neg) O(N^2) create pos and neg arrays , store the values and append them at last alteratively using even and odd indices.
+//Rearrange Array Elements by Sign -- 1) brute force - (if pos==neg && pos!=neg) O(N) create pos and neg arrays , store the values and append them at last alteratively using even and odd indices.
 //                                    2) optimal - (if pos==neg) O(N) use a two pointers like pos and neg to alternatively iterate and store the pos and neg in res array.
 
 
