@@ -1,7 +1,8 @@
 //Find the repeating and missing numbers -- 1) brute force  - TC:O(N^2) SC:O(1) Check each number 1..n in array to find missing and repeating.
-//                                          2) better  - TC:O(N) SC:O(N) Use a hash array to count occurrences of each number.
-//                                          2) optimal 1 - TC:O(N) SC:O(1) Use math (sum and sum of squares) to find missing and repeating.
-//                                          2) optimal 2 - TC:O(N) SC:O(1) Use XOR partitioning to separate missing and repeating numbers.
+//                                          2) better 1  - TC:O(NlogN) SC:O(1) Sort the array and use sum difference to find missing and repeating numbers.
+//                                          3) better 2  - TC:O(N) SC:O(N) Use a hash array to count occurrences of each number.
+//                                          4) optimal 1 - TC:O(N) SC:O(1) Use math (sum and sum of squares) to find missing and repeating.
+//                                          5) optimal 2 - TC:O(N) SC:O(1) Use XOR partitioning to separate missing and repeating numbers.
 
 
 
@@ -36,7 +37,21 @@ class Arrays38{
         // }
 
 
-        // better
+        // better-1
+        //int asum=(n*(n+1))/2;
+        // int sum=0,x=-1,y=-1;
+        // Arrays.sort(a);
+        // for(int i=1;i<n;i++){
+        //     sum+=a[i];
+        //     if(a[i]==a[i-1]){
+        //         y=a[i];
+        //     }
+        // }
+        // sum+=a[0];
+        // x=(asum-sum)+y;
+
+
+        // better-2
         // int hash[]=new int[n+1];
         // for(int i=0;i<n;i++){
         //     hash[a[i]]++;
