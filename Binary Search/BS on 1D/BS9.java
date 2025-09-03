@@ -1,4 +1,4 @@
-// Search Element in a Rotated Sorted Array II - 1) iterative : TC:O(logN)
+// Search Element in a Rotated Sorted Array II - 1) iterative : TC:O(logN) modified binary search to handle duplicates by skipping equal elements at the boundaries and then determining the sorted half for narrowing the search.
 
 
 import java.util.*;

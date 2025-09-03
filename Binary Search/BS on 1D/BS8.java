@@ -1,4 +1,4 @@
-// Search Element in a Rotated Sorted Array - 1) iterative : TC:O(logN)
+// Search Element in a Rotated Sorted Array - 1) iterative : TC:O(logN) binary search by identifying the sorted half in each step and adjusting the search range accordingly.
 
 
 import java.util.*;
