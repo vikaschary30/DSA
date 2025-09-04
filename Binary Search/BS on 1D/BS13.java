@@ -30,15 +30,15 @@ class BS13{
         }
         int ans=-1;
         if(n==1){
-            System.out.println(a[0]);
+            System.out.println(0);
             return;
         }
         if(a[0]>a[1]){
-            System.out.println(a[0]);
+            System.out.println(0);
             return;
         }
         if(a[n-1]>a[n-2]){
-            System.out.println(a[n-1]);
+            System.out.println(n-1);
             return;
         }
         ans=peakelement(a,1,n-2);
