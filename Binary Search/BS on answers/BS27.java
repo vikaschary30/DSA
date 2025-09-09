@@ -1,5 +1,7 @@
 // K-th Element of two sorted arrays - Problem statement : Given two sorted arrays of size m and n respectively, you are tasked with finding the element that would be at the kth position of the final sorted array.
-//                                     1) optimal - TC: O(log(min(n1, n2))) SC: O(1) Use binary search on the partition of the smaller array so that the first k elements are correctly distributed between the two arrays.
+//                                     1) brute force - TC: O(n1+n2) SC: O(n1+n2) Merge both arrays into a single sorted list and return the element at index k-1.
+//                                     2) better - TC: O(k) SC: O(1) Use two pointers to traverse both arrays without extra space and stop when the K-th element is reached.
+//                                     3) optimal - TC: O(log(min(n1, n2))) SC: O(1) Use binary search on the partition of the smaller array so that the first k elements are correctly distributed between the two arrays.
 
 
 import java.util.*;
@@ -13,22 +15,10 @@ class BS27{
         while(low<=high){
             int mid1=(low+high)/2;
             int mid2=left-mid1;
-            int l1=Integer.MIN_VALUE;
-            int l2=Integer.MIN_VALUE;
-            int r1=Integer.MAX_VALUE;
-            int r2=Integer.MAX_VALUE;
-            if(mid1>0){
-                l1=a[mid1-1];
-            }
-            if(mid2>0){
-                l2=b[mid2-1];
-            }
-            if(mid1<n1){
-                r1=a[mid1];
-            }
-            if(mid2<n2){
-                r2=b[mid2];
-            }
+            int l1=(mid1>0) ? a[mid1-1] : Integer.MIN_VALUE;
+            int l2=(mid2>0) ? b[mid2-1] : Integer.MIN_VALUE;
+            int r1=(mid1<n1) ? a[mid1] : Integer.MAX_VALUE;
+            int r2=(mid2<n2) ? b[mid2] : Integer.MAX_VALUE;
             if(l1<=r2 && l2<=r1)
             {
                 return Math.max(l1,l2);
@@ -38,7 +28,7 @@ class BS27{
             }
             else{
                 low=mid1+1;
-            }
+            }   
         }
         return 0;
     }
@@ -55,6 +45,35 @@ class BS27{
             b[i]=sc.nextInt();
         }
         int k=sc.nextInt();
+
+
+        //brute force
+        // ArrayList<Integer> merged = new ArrayList<>();
+        // int i = 0, j = 0;
+        // while(i < n1 && j < n2){
+        //     if(a[i] <= b[j]) merged.add(a[i++]);
+        //     else merged.add(b[j++]);
+        // }
+        // while(i < n1) merged.add(a[i++]);
+        // while(j < n2) merged.add(b[j++]);
+        // System.out.println(merged.get(k-1));
+
+
+        //better
+        //int i = 0, j = 0, count = 0, ans = -1;
+        // while(i < n1 && j < n2){
+        //     if(a[i] <= b[j]){
+        //         ans = a[i++];
+        //     } else {
+        //         ans = b[j++];
+        //     }
+        //     count++;
+        //     if(count == k) break;
+        // }
+        // while(count < k && i < n1){ ans = a[i++]; count++; }
+        // while(count < k && j < n2){ ans = b[j++]; count++; }
+        // System.out.println(ans);
+
         int ans=medianofarrays(a,b,k);
         System.out.println(ans);
     }
