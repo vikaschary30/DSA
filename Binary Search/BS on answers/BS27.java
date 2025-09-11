@@ -74,7 +74,7 @@ class BS27{
         // while(count < k && j < n2){ ans = b[j++]; count++; }
         // System.out.println(ans);
 
-        int res=medianofarrays(a,b,k);
-        System.out.println(res);
+        int ans=medianofarrays(a,b,k);
+        System.out.println(ans);
     }
 }
