@@ -1,7 +1,8 @@
 // Find the row with maximum number of 1's -    Problem statement : You have been given a non-empty grid ‘mat’ with 'n' rows and 'm' columns consisting of only 0s and 1s. All the rows are sorted in ascending order.
 //                                              Your task is to find the index of the row with the maximum number of ones.Note: If two rows have the same number of ones, consider the one with a smaller index. If there's no row with at least 1 zero, return -1.
 //                                              1) brute force : TC:O(N*M) Count 1’s in every row.
-//                                              2) optimal : TC:O(N*logM) Find first 1 in each row using binary search.
+//                                              2) better : TC:O(N*logM) Find first 1 in each row using binary search.
+//                                              3) optimal : TC:O(N+M) Start at top-right, move left on 1 and down on 0.
 
 import java.util.*;
 class BS28{
@@ -45,16 +46,32 @@ class BS28{
         // System.out.println(index);
 
 
+        //better
+        // int index=-1,maxcnt=0;
+        // for(int i=0;i<n;i++){
+        //     int cnt=0;
+        //     cnt=m-lowerbound(mat[i],m,1);
+        //     if(cnt>maxcnt){
+        //         maxcnt=cnt;
+        //         index=i;
+        //     }
+        // }
+        // System.out.println(index);
+
+
         //optimal
-        int index=-1,maxcnt=0;
-        for(int i=0;i<n;i++){
-            int cnt=0;
-            cnt=m-lowerbound(mat[i],m,1);
-            if(cnt>maxcnt){
-                maxcnt=cnt;
-                index=i;
+        int left=0, right=m-1;
+        int index=-1;
+        while(left<n &&  right>=0){
+            if(mat[left][right]==1){
+                index=left;
+                right--;
+            }
+            else{
+                left++;
             }
         }
         System.out.println(index);
+
     }
 }
