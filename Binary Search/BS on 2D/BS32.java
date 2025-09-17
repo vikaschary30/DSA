@@ -14,10 +14,10 @@ class BS32{
         Collections.sort(lst);
         return lst.get((m * n) / 2);
     }
-    public static int countofsmaller(int[][] matrix, int m, int n, int x) {
+    public static int countofsmaller(int[][] mat, int m, int n, int x) {
         int cnt = 0;
         for (int i = 0; i < m; i++) {
-            cnt += upperBound(matrix[i], x, n);
+            cnt += upperBound(mat[i], x, n);
         }
         return cnt;
     }
