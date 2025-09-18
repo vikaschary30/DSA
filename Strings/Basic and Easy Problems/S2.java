@@ -15,7 +15,7 @@ class S2{
             if(ch!=' '){
                 temp+=ch;
             }
-            else if(ch==' '){
+            else if(!temp.isEmpty()){
                 if(!ans.isEmpty()){
                     ans=temp+" "+ans;
                 }
