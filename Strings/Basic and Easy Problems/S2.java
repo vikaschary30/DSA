@@ -5,7 +5,7 @@
 
 import java.util.*;
 class S2{
-    public static String result(String s){
+    public static String resultString(String s){
         int left=0, right=s.length()-1;
         String temp="";
         String ans="";
@@ -66,6 +66,6 @@ class S2{
         // System.out.println(ans);
 
         //optimal
-        System.out.println(result(s));
+        System.out.println(resultString(s));
     }
 }
