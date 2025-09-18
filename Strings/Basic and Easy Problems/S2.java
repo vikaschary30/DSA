@@ -6,6 +6,7 @@
 import java.util.*;
 class S2{
     public static String resultString(String s){
+        s=s.trim();
         int left=0, right=s.length()-1;
         String temp="";
         String ans="";
