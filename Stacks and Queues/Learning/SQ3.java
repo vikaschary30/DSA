@@ -1,5 +1,5 @@
 
-// Implement Stack using LinkedList
+// Implement Stack using LinkedList - O(1) time for all operations
 
 
 import java.util.Scanner;

@@ -1,5 +1,5 @@
 
-// Implement Queue using Array
+// Implement Queue using Array - O(1) time for all operations
 
 
 import java.util.Scanner;

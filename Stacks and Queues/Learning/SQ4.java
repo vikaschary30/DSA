@@ -1,5 +1,5 @@
 
-// Implement Queue using LinkedList
+// Implement Queue using LinkedList - O(1) time for all operations
 
 
 import java.util.Scanner;

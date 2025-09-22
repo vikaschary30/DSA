@@ -1,5 +1,5 @@
 
-// Implement Stack using Array
+// Implement Stack using Array - O(1) time for all operations
 
 
 import java.util.Scanner;
