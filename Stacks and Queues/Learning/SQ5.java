@@ -1,5 +1,5 @@
 // Implement Stack using single Queue
-class MyStack{
+class Stack{
     java.util.Queue<Integer> q = new java.util.LinkedList<>();   
     void push(int x){
         q.add(x);
@@ -27,7 +27,7 @@ class MyStack{
 }
 class SQ5{
     public static void main(String[] args) {
-        MyStack s = new MyStack();
+        Stack s = new Stack();
         s.push(3);
         s.push(2);
         s.push(4);
