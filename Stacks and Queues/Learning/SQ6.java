@@ -36,7 +36,7 @@
 
 
 //approach 2:
-class Queue{
+class MyQueue{
     java.util.Stack<Integer> st1=new java.util.Stack<>();
     java.util.Stack<Integer> st2=new java.util.Stack<>();
     void push(int x){
@@ -68,7 +68,7 @@ class Queue{
 }
 class SQ6{
     public static void main(String args[]) {
-        Queue q = new Queue();
+        MyQueue q = new MyQueue();
         q.push(3);
         q.push(4);
         System.out.println("The element poped is " + q.pop());
