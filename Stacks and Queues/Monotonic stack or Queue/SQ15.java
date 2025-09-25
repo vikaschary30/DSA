@@ -1,4 +1,4 @@
-// Next Greater Element 1 - Problem Statement : The next greater element of some element x in an array is the first greater element that is to the right of x in the same array.
+// Next Greater Element 1 - Problem Statement : Given a  integer array A, return the next greater element for every element in A. The next greater element for an element x is the first element greater than x that we come across while traversing the array in a clockwise manner. If it doesn't exist, return -1 for this element.
 //                          1) brute force -  TC:O(N^2) SC:O(N) For each element, linearly scan its right side to find the next greater element.
 //                          2) optimal - TC:O(2N) SC:O(N) Traverse from right using a stack to keep potential greater elements, achieving O(2N).
 
