@@ -9,7 +9,7 @@ class SQ20{
         int nse[]=new int[n];
         Stack<Integer> st=new Stack<>();
         for(int i=n-1;i>=0;i--){
-            while(!st.isEmpty() && a[i]>a[st.peek()]){
+            while(!st.isEmpty() && a[i]<=a[st.peek()]){
                 st.pop();
             }
             nse[i]=st.isEmpty()?n:st.peek();
@@ -21,7 +21,7 @@ class SQ20{
         int psee[]=new int[n];
         Stack<Integer> st=new Stack<>();
         for(int i=0;i<n;i++){
-            while(!st.isEmpty() && a[i]<=a[st.peek()]){
+            while(!st.isEmpty() && a[i]<a[st.peek()]){
                 st.pop();
             }
             psee[i]=st.isEmpty()?-1:st.peek();
