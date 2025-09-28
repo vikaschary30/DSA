@@ -1,5 +1,5 @@
 // Sort characters by frequency - Problem Statement : You are given a string s. Return the array of unique characters, sorted by highest to lowest occurring characters.If two or more characters have same frequency then arrange them in alphabetic order.
-//                                1) brute force - TC:O(NlogK) SC:O(K) Count frequencies with HashMap, sort characters by frequency (and alphabetically for ties), then build string.
+//                                1) brute force - TC:O(N+KlogK) SC:O(K) Count frequencies with HashMap, sort characters by frequency (and alphabetically for ties), then build string.
 //                                2) better -  TC:O(NlogK) SC:O(K) Count frequencies, push (char, freq) into max-heap, then pop and append.
 //                                3) optimal - TC:O(N) SC:O(N+K) Count frequencies, put characters into buckets indexed by frequency, traverse buckets from high to low and append.
 
