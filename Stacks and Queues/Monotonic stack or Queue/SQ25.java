@@ -1,6 +1,6 @@
 // Area of largest rectangle in Histogram - Problem Statement : Given an array of integers heights representing the histogram's bar height where the width of each bar is 1  return the area of the largest rectangle in histogram.
 //                                          1) better - TC:O(5N) SC:O(4N) For each bar, use stacks to find its nearest smaller elements on left and right, then compute area = height × (right − left − 1) and take the maximum. 
-
+//                                          2) optimal - TC:O(2N) SC:O(2N) Maintain a monotonic increasing stack; whenever a bar is popped, treat the current index as its right boundary (NSE) and the new stack top as its left boundary (PSE) to compute area and track the maximum.
 
 import java.util.*;
 class SQ25{
@@ -37,11 +37,31 @@ class SQ25{
         }
 
         //brute force:
-        int[] nse=findnse(a,n);
-        int[] pse=findpse(a,n);
+        // int[] nse=findnse(a,n);
+        // int[] pse=findpse(a,n);
+        // int max=0;
+        // for(int i=0;i<n;i++){
+        //     max=Math.max(max, a[i]*(nse[i]-pse[i]-1));
+        // }
+        // System.out.println(max);
+
+        //optimal:
+        Stack<Integer> st=new Stack<>();
         int max=0;
         for(int i=0;i<n;i++){
-            max=Math.max(max, a[i]*(nse[i]-pse[i]-1));
+            while(!st.isEmpty() && a[st.peek()]>a[i]){
+                int ele=st.pop();
+                int nse=i;
+                int pse=st.isEmpty()?-1:st.peek();
+                max=Math.max(max, a[ele]*(nse-pse-1));
+            }
+            st.push(i);
+        }
+        while(!st.isEmpty()){
+            int ele=st.pop();
+            int nse=n;
+            int pse=st.isEmpty()?-1:st.peek();
+            max=Math.max(max, a[ele]*(nse-pse-1));
         }
         System.out.println(max);
     }
