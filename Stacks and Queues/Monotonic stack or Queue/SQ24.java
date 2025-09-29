@@ -31,6 +31,10 @@ class SQ24{
         while(res.length()>0 && res.charAt(res.length()-1)=='0'){
             res.deleteCharAt(res.length()-1);
         }
+        if(res.length()==0){
+            System.out.println("0");
+            return;
+        }
         res.reverse();
         System.out.println(res);
     }
