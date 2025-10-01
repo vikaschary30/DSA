@@ -5,7 +5,7 @@
 //                                 void put(int key, int value): Update the value of the key if it is present in the cache, or insert the key if it is not already present. If the cache has reached its capacity, invalidate and remove the least frequently used key before inserting a new item. In case of a tie (i.e., two or more keys with the same frequency), invalidate the least recently used key.
 //                                 A use counter is maintained for each key in the cache to determine the least frequently used key. The key with the smallest use counter is considered the least frequently used.
 //                                 When a key is first inserted into the cache, its use counter is set to 1 due to the put operation. The use counter for a key in the cache is incremented whenever a get or put operation is called on it. Ensure that the functions get and put run in O(1) average time complexity.
-//             1) optimal - TC:O(N) SC:O(capacity) Your LFUCache uses a HashMap for key→node lookup and a frequency→doubly linked list map to track usage counts, always evicting the least frequently used (and least recently used on ties) node in O(1).
+//             1) optimal - TC:O(1(for operations)) SC:O(capacity) Your LFUCache uses a HashMap for key→node lookup and a frequency→doubly linked list map to track usage counts, always evicting the least frequently used (and least recently used on ties) node in O(1).
 
 
 import java.util.*;
