@@ -9,6 +9,10 @@ class SW1{
         Scanner sc=new Scanner(System.in);
         String s=sc.nextLine();
         int n=s.length();
+        if(n==0){
+            System.out.println("-1");
+            return;
+        }
 
         //brute force:
         // int max=Integer.MIN_VALUE;
