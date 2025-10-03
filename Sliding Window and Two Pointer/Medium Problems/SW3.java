@@ -2,8 +2,10 @@
 //                                          he goal is to gather as much fruit as possible, adhering to the owner's stringent rules :There are two baskets available, and each basket can only contain one kind of fruit. The quantity of fruit each basket can contain is unlimited.Start at any tree, but as you proceed to the right, select exactly one fruit from each tree, including the starting tree. One of the baskets must hold the harvested fruits.
 //                                          Once reaching a tree with fruit that cannot fit into any basket, stop.Return the maximum number of fruits that can be picked.
 //                      1) brute force - TC:O(N^2) SC:O(1) Try every starting tree, count the types of fruits in the subarray until >2 types, and record the longest length.
-//                      2) better - TC:O(2N) SC:O(1) Use a sliding window with a HashMap to track fruit counts, shrink from the left when >2 types, and update max length.
-//                      3) optimal - TC:O(N) SC:O(1) Same sliding window approach, but cleanly shrink while the number of fruit types >2, ensuring the window always remains valid and max length is updated.
+//                      2) better 1 - TC:O(2N) SC:O(1) Use a sliding window with a HashMap to track fruit counts, shrink from the left when >2 types, and update max length.
+//                      3) better 2 - TC:O(N) SC:O(1) Same sliding window approach, but cleanly shrink while the number of fruit types >2, ensuring the window always remains valid and max length is updated.
+//                      4) optimal - TC:O(N) SC:O(1) Track the last two fruit types and the streak of the most recent fruit, expanding the window for matching fruits and resetting it using the last streak when a third type appears, to find the maximum contiguous subarray with at most two fruit types in O(n) time and O(1) space.
+
 
 import java.util.*;
 class SW3{
@@ -32,7 +34,7 @@ class SW3{
         // System.out.println(max);
 
         
-        //better:
+        //better  1:
         // int max=0;
         // HashMap<Integer,Integer> hm=new HashMap<>();
         // int l=0,r=0;
@@ -53,23 +55,47 @@ class SW3{
         // System.out.println(max);
 
 
-        //optimal:
+        //better 2:
+        // int max=0;
+        // HashMap<Integer,Integer> hm=new HashMap<>();
+        // int l=0,r=0;
+        // while(r<n){
+        //     hm.put(a[r], hm.getOrDefault(a[r], 0)+1);
+        //     if(hm.size()>2){
+        //         hm.put(a[l],hm.get(a[l])-1);
+        //         if(hm.get(a[l])==0){
+        //             hm.remove(a[l]);
+        //         }
+        //         l++;
+        //     }
+        //     if(hm.size()<=2){
+        //         max=Math.max(max,r-l+1);
+        //     }
+        //     r++;
+        // }
+        // System.out.println(max);
+
+        
+        // optimal :
         int max=0;
-        HashMap<Integer,Integer> hm=new HashMap<>();
-        int l=0,r=0;
-        while(r<n){
-            hm.put(a[r], hm.getOrDefault(a[r], 0)+1);
-            if(hm.size()>2){
-                hm.put(a[l],hm.get(a[l])-1);
-                if(hm.get(a[l])==0){
-                    hm.remove(a[l]);
-                }
-                l++;
+        int lastfruit=-1, lastSecondfruit=-1;
+        int currcnt=0, lastfruitStreak=0;
+        for(int fruit:a){
+            if(fruit==lastfruit || fruit==lastSecondfruit){
+                currcnt++;
             }
-            if(hm.size()<=2){
-                max=Math.max(max,r-l+1);
+            else{
+                currcnt=lastfruitStreak+1;
             }
-            r++;
+            if(fruit==lastfruit){
+                lastfruitStreak++;
+            }
+            else{
+                lastfruitStreak=1;
+                lastSecondfruit=lastfruit;
+                lastfruit=fruit;
+            }
+            max=Math.max(max, currcnt);
         }
         System.out.println(max);
     }
