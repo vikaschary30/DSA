@@ -6,6 +6,7 @@
 import java.util.*;
 class SW5{
     public static int binarysum(int[] a, int n, int k){
+        if(k<0) return 0;
         int l=0,r=0,c=0,sum=0;
         while(r<n){
             sum+=a[r];
