@@ -1,7 +1,7 @@
 // Binary subarray with sum - Problem Statement : You are given a binary array nums (containing only 0s and 1s) and an integer goal. Return the number of non-empty subarrays of nums that sum to goal. A subarray is a contiguous part of the array.
 //                            1) brute force - TC:O(N^2) SC:O(1) Check all subarrays and count those with sum = k.
 //                            2) better - TC:O(N) SC:O(N) Use prefix sum and a frequency map to count subarrays ending at each index with sum = k.
-//                            3) optimal - TC:O(N) SC:O(1) Count subarrays with sum ≤ k and subtract those with sum ≤ k-1 to get exactly sum = k.
+//                            3) optimal - TC:O(2N) SC:O(1) Count subarrays with sum ≤ k and subtract those with sum ≤ k-1 to get exactly sum = k.
 
 import java.util.*;
 class SW5{
