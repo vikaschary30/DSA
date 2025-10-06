@@ -65,6 +65,10 @@ class SW11{
             }
             r++;
         }
-        System.out.println(stind==-1?"":s.substring(stind, stind+minlen));
+        if(stind==-1){
+            System.out.println("");
+            return;
+        }
+        System.out.println(s.substring(stind, stind+minlen));
     }
 }
