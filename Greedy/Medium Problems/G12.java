@@ -1,41 +1,37 @@
 // Merge Overlapping Sub-intervals - Problem Statement : Given an array of intervals, merge all the overlapping intervals and return an array of non-overlapping intervals.
-//                                   1) brute force - TC:O(N^2) 
+//                                   1) optimal - TC:O(N) SC:O(N) Merges all overlapping intervals in a single O(N) pass after sorting (if needed), producing a list of non-overlapping merged intervals.
 
 
 import java.util.*;
 class G12{
-    public static List<List<Integer>> mergeOverlappingIntervals(int[][] arr) {
-        int n = arr.length; 
-        Arrays.sort(arr, new Comparator<int[]>() {
-            public int compare(int[] a, int[] b) {
-                return a[0] - b[0];
-            }
-        });
-        List<List<Integer>> ans = new ArrayList<>();
-        for (int i = 0; i < n; i++) { 
-            int start = arr[i][0];
-            int end = arr[i][1];
-            if (!ans.isEmpty() && end <= ans.get(ans.size() - 1).get(1)) {
-                continue;
-            }
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j][0] <= end) {
-                    end = Math.max(end, arr[j][1]);
-                } else {
-                    break;
-                }
-            }
-            ans.add(Arrays.asList(start, end));
-        }
-        return ans;
-    }
     public static void main(String[] args) {
-        int[][] arr = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
-        List<List<Integer>> ans = mergeOverlappingIntervals(arr);
-        System.out.print("The merged intervals are: \n");
-        for (List<Integer> it : ans) {
-            System.out.print("[" + it.get(0) + ", " + it.get(1) + "] ");
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[][] a=new int[n][2];
+        for (int i = 0; i < n; i++) {
+            a[i][0] = sc.nextInt();
+            a[i][1] = sc.nextInt();
         }
-        System.out.println();
+
+        int res[][]=new int[n][2];
+        int id=0;
+        res[0]=a[0];
+        for(int i=1;i<n;i++){
+            if(a[i][0]<=res[id][1]){
+                res[id][1]=Math.max(res[id][1],a[i][1]);
+            }
+            else{
+                id++;
+                res[id]=a[i];
+            }
+        }
+        int[][] result=new int[id+1][2];
+        for(int i=0;i<id+1;i++){
+            result[i]=res[i];
+        }
+        for(int[] arr:result){
+            System.out.print(arr[0]+" "+arr[1]);
+            System.out.print(", ");
+        }
     }
 }
