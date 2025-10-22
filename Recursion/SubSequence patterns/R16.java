@@ -22,7 +22,7 @@ class R16{
 
         //brute force:
         // List<String> res=new ArrayList<>();
-        // for(int i=0;i<Math.pow(2,n)-1;i++){
+        // for(int i=0;i<(1<<n);i++){
         //     StringBuilder temp=new StringBuilder();
         //     for(int j=0;j<n;j++){
         //         if(((1<<j)&i)!=0){
