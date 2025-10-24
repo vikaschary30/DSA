@@ -1,4 +1,4 @@
-// Count all subsequences with sum K - Problem Statement : Given an array nums and an integer k.Return the number of non-empty subsequences of nums such that the sum of all elements in the subsequence is equal to k.
+// Print all subsequences with sum K - Problem Statement : Given an array nums and an integer k.Return the non-empty subsequences of nums such that the sum of all elements in the subsequence is equal to k.
 //                                     1) optimal - TC:O(2^N) SC:O(N) Recursively generate all pick/not-pick subsequences and store those whose running sum equals k.
 
 import java.util.*;
