@@ -1,5 +1,5 @@
 // Subset - II | Print all the Unique Subsets - Problem Statement : Given an array of integers that may contain duplicates the task is to return all possible subsets. Return only unique subsets and they can be in any order.
-//                                              1) optimal - TC:O(2^N*k) SC:O(2^N*k)  Sort the array and use backtracking to generate all subsets while skipping duplicate elements at the same recursion level to ensure only unique subsets are added.
+//                                              1) optimal - TC:O(2^N*k) SC:O(2^N*k) (k=avg length of every subset) Sort the array and use backtracking to generate all subsets while skipping duplicate elements at the same recursion level to ensure only unique subsets are added.
 
 import java.util.*;
 class R23{
