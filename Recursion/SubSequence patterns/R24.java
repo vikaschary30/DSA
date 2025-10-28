@@ -2,7 +2,7 @@
 //                                           1. There is only use of numerals 1 through 9.
 //                                           2. A single use is made of each number.
 //                                           Return list of every feasible combination that is allowed. The combinations can be returned in any order, but the list cannot have the same combination twice.
-//                       1) optimal - Backtrack through numbers 1 to 9, picking each number at most once, decreasing both sum n and count k until exactly k numbers form a sum equal to n.
+//                       1) optimal - TC:O(C(9,k)) SC:O(k) Backtrack through numbers 1 to 9, picking each number at most once, decreasing both sum n and count k until exactly k numbers form a sum equal to n.
 
 import java.util.*;
 class R24{
