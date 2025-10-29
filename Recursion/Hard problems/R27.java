@@ -1,5 +1,5 @@
 // Word Search - Problem Statement : Given an m x n grid of characters board and a string word, return true if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
-//               1) optimal - 
+//               1) optimal - TC:O(N*M*4^L) SC:O(L) (L=Size of the word) Use DFS with backtracking from every matching starting cell, marking cells as visited temporarily, to check if the word can be formed by adjacent (non-reused) cells.
 
 import java.util.*;
 class R27{
