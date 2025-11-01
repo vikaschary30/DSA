@@ -1,5 +1,5 @@
 // Sudoku Solver - Problem Statement :  Given a 9x9 incomplete sudoku, solve it such that it becomes valid sudoku. Valid sudoku has the following properties.1. All the rows should be filled with numbers(1 - 9) exactly once.2. All the columns should be filled with numbers(1 - 9) exactly once.3. Each 3x3 submatrix should be filled with numbers(1 - 9) exactly once.Note: Character '.' indicates empty cell.
-//                 1) optimal - TC:O(9^N) SC:O(81) Recursively fills each empty cell '.' with digits '1'–'9', checking row, column, and 3×3 box validity at each step, and backtracks when a placement violates Sudoku rules until the board is completely solved.
+//                 1) optimal - TC:O(9^N) SC:O(81 ~ 1) Recursively fills each empty cell '.' with digits '1'–'9', checking row, column, and 3×3 box validity at each step, and backtracks when a placement violates Sudoku rules until the board is completely solved.
 
 import java.util.*;
 class R31{
