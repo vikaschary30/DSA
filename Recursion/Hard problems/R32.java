@@ -1,5 +1,5 @@
 // Expression Add Operators - Problem Statement : Given a string num that contains only digits and an integer target, return all possibilities to insert the binary operators '+', '-', and/or '*' between the digits of num so that the resultant expression evaluates to the target value.Note that operands in the returned expressions should not contain leading zeros.Note that a number can contain multiple digits.
-//                            1) optimal - Recursively inserts '+', '-', or '*' between digits, evaluating partial expressions while preserving multiplication precedence, and collects those that evaluate exactly to the target.
+//                            1) optimal - TC:O(4^N) SC:O(N) Recursively inserts '+', '-', or '*' between digits, evaluating partial expressions while preserving multiplication precedence, and collects those that evaluate exactly to the target.
 
 import java.util.*;
 class R32{
