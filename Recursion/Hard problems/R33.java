@@ -1,5 +1,5 @@
 // M - Coloring Problem - Problem Statement : Given an undirected graph and a number m, determine if the graph can be colored with at most m colors such that no two adjacent vertices of the graph are colored with the same color.
-//                        1) optimal - 
+//                        1) optimal - TC:O(m^N) SC:O(N) Uses backtracking to assign colors to each vertex such that no two adjacent vertices share the same color, trying all color combinations up to m colors.
 
 import java.util.*;
 class R33 {
