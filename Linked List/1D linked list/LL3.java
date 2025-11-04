@@ -1,4 +1,4 @@
-// Search an element in the LL - optimal :
+// Search an element in the LL - optimal : TC:O(N) SC:O(1) Traverses the linked list sequentially and returns true if any node’s data matches the given value, otherwise false.
 
 class Node{
     int data;
