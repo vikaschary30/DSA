@@ -1,4 +1,5 @@
-// Inserting a node in LinkedList - optimal : TC:O(N) SC:O(1) Inserts a new node at the specified position in a singly linked list by traversing up to that position and adjusting pointers.
+// Insertion and Deletion a node in LinkedList - 1) insertion - optimal : TC:O(N) SC:O(1) Inserts a new node at the specified position in a singly linked list by traversing up to that position and adjusting pointers.
+//                                               2) deletion - optimal : TC:O(N) SC:O(1) Traverses the linked list to the given position and removes that node by linking its previous node directly to its next node.
 
 import java.util.*;
 class Node{
@@ -33,6 +34,27 @@ class LL1{
         }
         return head;
     }
+    public static Node deleteAtpos(Node head, int pos){
+        if (head == null) {
+            return null;
+        }
+        if(pos==1){
+            return head.next;
+        }
+        int c=0;
+        Node temp=head;
+        Node prev=null;
+        while(temp!=null){
+            c++;
+            if(c==pos){
+                prev.next=temp.next;
+                break;
+            }
+            prev=temp;
+            temp=temp.next;
+        }
+        return head;
+    }
     public static void printList(Node head){
         if(head==null){
             return;
@@ -49,7 +71,13 @@ class LL1{
         int val=sc.nextInt();
         Node head=new Node(10);
         head.next=new Node(20);
-        head=insertAtpos(head,k,val);
+        System.out.println("Original List:");
+        printList(head);
+        head = insertAtpos(head, k, val);
+        System.out.println("After Insertion at position " + k + ":");
+        printList(head);
+        head = deleteAtpos(head, k);
+        System.out.println("After Deletion at position " + k + ":");
         printList(head);
     }
 }
