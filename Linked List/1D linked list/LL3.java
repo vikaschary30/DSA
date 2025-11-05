@@ -8,7 +8,7 @@ class Node{
     }
 }
 class LL3{
-    public static boolean searchNode(Node head, int val){
+    public static boolean search(Node head, int val){
         if(head==null){
             return false;
         }
@@ -29,7 +29,7 @@ class LL3{
         head.next.next.next=new Node(a[3]);
         head.next.next.next.next=new Node(a[4]);
         int val=4;
-        boolean search=searchNode(head,val);
+        boolean search=search(head,val);
         System.out.println(search);
     }
 }
