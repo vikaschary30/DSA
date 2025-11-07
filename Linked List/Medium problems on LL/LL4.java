@@ -1,6 +1,6 @@
 // Find middle element in a Linked List - Problem Statement : Given the head of a linked list of integers, determine the middle node of the linked list. However, if the linked list has an even number of nodes, return the second middle node.
 //                                        1) brute force - TC:O(N+(N/2)) SC:O(1) first counting all nodes and then traversing again to the (count/2+1)(\text{count}/2 + 1)(count/2+1)-th node.
-
+//                                        2) optimal - TC:O(N) SC:O(1) middle node using two pointers — moving the fast pointer twice as fast as the slow pointer, so when fast reaches the end, slow points to the middle node.
 
 import java.util.*;
 class Node{
@@ -35,26 +35,41 @@ class LL4{
     }
 
     //brute force:
+    // public static Node middleNode(Node head){
+    //     if(head==null){
+    //         return null;
+    //     }
+    //     Node temp=head;
+    //     int c=0;
+    //     while(temp!=null){
+    //         c++;
+    //         temp=temp.next;
+    //     }
+    //     temp=head;
+    //     int mid=(c/2)+1;
+    //     while(temp!=null){
+    //         mid--;
+    //         if(mid==0){
+    //             break;
+    //         }
+    //         temp=temp.next;
+    //     }
+    //     return temp;
+    // }
+
+    
+    //optimal:
     public static Node middleNode(Node head){
         if(head==null){
             return null;
         }
-        Node temp=head;
-        int c=0;
-        while(temp!=null){
-            c++;
-            temp=temp.next;
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
         }
-        temp=head;
-        int mid=(c/2)+1;
-        while(temp!=null){
-            mid--;
-            if(mid==0){
-                break;
-            }
-            temp=temp.next;
-        }
-        return temp;
+        return slow;
     }
 
     public static void main(String[] args) {
