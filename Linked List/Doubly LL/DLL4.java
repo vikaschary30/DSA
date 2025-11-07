@@ -1,5 +1,6 @@
 // Reverse a Doubly Linked List - Problem Statement : Given a doubly linked list of size ‘N’ consisting of positive integers, your task is to reverse it and return the head of the modified doubly linked list.
 //                                1) brute force - TC:O(2N) SC:O(N) reverses a doubly linked list by pushing all node values onto a stack and then reassigning them back to the list in reverse order.
+//                                2) optimal - TC:O(N) SC:O(1) reverses a doubly linked list in-place by swapping each node’s next and prev pointers as it traverses, and finally returning the new head of the list.
 
 import java.util.*;
 class Node{
@@ -37,18 +38,31 @@ class DLL4{
     }
 
     //brute force:
-    public static void reverse(Node head){
-        Stack<Integer> st=new Stack<>();
+    // public static void reverse(Node head){
+    //     Stack<Integer> st=new Stack<>();
+    //     Node temp=head;
+    //     while(temp!=null){
+    //         st.push(temp.data);
+    //         temp=temp.next;
+    //     }
+    //     Node curr=head;
+    //     while(curr!=null){
+    //         curr.data=st.pop();
+    //         curr=curr.next;
+    //     }
+    // }
+
+    //optimal:
+    public static Node reverseDll(Node head){
         Node temp=head;
+        Node last=null;
         while(temp!=null){
-            st.push(temp.data);
-            temp=temp.next;
+            last=temp.prev;
+            temp.prev=temp.next;
+            temp.next=last;
+            temp=temp.prev;
         }
-        Node curr=head;
-        while(curr!=null){
-            curr.data=st.pop();
-            curr=curr.next;
-        }
+        return last.prev;
     }
 
     public static void main(String[] args) {
@@ -61,7 +75,7 @@ class DLL4{
         Node head=arrayToDll(a);
         printDll(head);
         System.out.println();
-        reverse(head);
+        head=reverseDll(head);
         printDll(head);
     }
 }
