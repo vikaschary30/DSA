@@ -58,6 +58,7 @@ class LL4{
     // }
 
     
+    
     //optimal:
     public static Node middleNode(Node head){
         if(head==null){
