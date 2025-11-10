@@ -33,6 +33,7 @@ class LL4{
             curr=curr.next;
         }
     }
+    
     //brute force:
     // public static Node middleNode(Node head){
     //     if(head==null){
