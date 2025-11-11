@@ -1,6 +1,6 @@
 // Detect a Cycle in a Linked List - Problem Statement: Given a Linked List, determine whether the linked list contains a cycle or not.
 //                                   1) brute force - TC:O(N) SC:O(N) Keep a record of visited nodes using a HashSet; if a node repeats, a cycle exists.
-//                                   2) optimal - TC:O(N) SC:O(1) Move one pointer one step and another two steps — if they ever meet, the linked list has a cycle.
+//                                   2) optimal(Floyd’s Cycle Detection) - TC:O(N) SC:O(1) Move one pointer one step and another two steps — if they ever meet, the linked list has a cycle.
 class Node{
     int data;
     Node next;
